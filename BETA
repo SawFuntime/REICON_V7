@@ -20,7 +20,7 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = 5,
 })
 
-print("Thx to Yak for the camlock and esp and thx for Lurk for the cmdbar")
+print("Thx to Yak for the camlock,esp and gunanim and thx for Lurk for the cmdbar")
 print("")
 print("-------------------HOTKEYS-------------------")
 print("")
@@ -35,6 +35,8 @@ print("")
 print("[T] = Get Glock")
 print("")
 print("[U] = Get Uzi")
+print("")
+print("[Z] = Gun Anims")
 print("")
 print("-------------------CMDS-------------------")
 print("")
@@ -162,6 +164,76 @@ print("(61)magicshotty / magicgun = Ur shotty will chanthe the ascpet with ur mo
 print("")
 print("(62)levitate / float = float ur character")
 print("")
+
+
+game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(KeyPressed)
+ if KeyPressed == "z" then
+local lplr = game:GetService("Players").LocalPlayer
+local shotty = lplr.Backpack:FindFirstChild("Shotty")
+local Animation = Instance.new("Animation")
+Animation.AnimationId = "rbxassetid://503259904"
+local plr = game:GetService('Players').LocalPlayer
+local HUM = plr.Character.Humanoid:LoadAnimation(Animation)
+shotty.Equipped:connect(function()
+    wait(.3)
+    HUM:Play()
+    HUM:AdjustSpeed(0.0)
+end)
+shotty.Unequipped:connect(function()
+    HUM:Stop()
+end)
+local lplr = game:GetService("Players").LocalPlayer
+local Glock = lplr.Backpack:FindFirstChild("Glock")
+local Animation = Instance.new("Animation")
+Animation.AnimationId = "rbxassetid://503259904"
+local plr = game:GetService('Players').LocalPlayer
+local HUM = plr.Character.Humanoid:LoadAnimation(Animation)
+Glock.Equipped:connect(function()
+    wait(.3)
+    HUM:Play()
+    HUM:AdjustSpeed(0.0)
+end)
+Glock.Unequipped:connect(function()
+    HUM:Stop()
+end)
+end
+end)
+--- end of gun animation 1
+
+--- gun animation 2 (uzi and sawed off)
+game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(KeyPressed)
+ if KeyPressed == "z" then
+local lplr = game:GetService("Players").LocalPlayer
+local Sawed = lplr.Backpack:FindFirstChild("Sawed Off")
+local Animation = Instance.new("Animation")
+Animation.AnimationId = "rbxassetid://503259904"
+local plr = game:GetService('Players').LocalPlayer
+local HUM = plr.Character.Humanoid:LoadAnimation(Animation)
+Sawed.Equipped:connect(function()
+    wait(.3)
+    HUM:Play()
+    HUM:AdjustSpeed(0.0)
+end)
+Sawed.Unequipped:connect(function()
+    HUM:Stop()
+end)
+local lplr = game:GetService("Players").LocalPlayer
+local uzi = lplr.Backpack:FindFirstChild("Uzi")
+local Animation = Instance.new("Animation")
+Animation.AnimationId = "rbxassetid://503259904"
+local plr = game:GetService('Players').LocalPlayer
+local HUM = plr.Character.Humanoid:LoadAnimation(Animation)
+uzi.Equipped:connect(function()
+    wait(.3)
+    HUM:Play()
+    HUM:AdjustSpeed(0.0)
+end)
+uzi.Unequipped:connect(function()
+    HUM:Stop()
+end)
+end
+end)
+
 
 
 
@@ -3689,37 +3761,10 @@ Commands["gunanims"] = {
     ["Function"] = function(Args)
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Animation guns";
-    Text = "u cant see it but the others player can";  
+    Text = "Press Z";  
     Duration = 0.5 
 	})
-    local lplr = game:GetService("Players").LocalPlayer
-local glock = lplr.Backpack:FindFirstChild("Glock")    
-local Animation = Instance.new("Animation")
-Animation.AnimationId = "rbxassetid://503259904"
-local plr = game:GetService('Players').LocalPlayer
-local HUM = plr.Character.Humanoid:LoadAnimation(Animation)        
-glock.Equipped:connect(function()
-    wait(.1)
-    HUM:Play()
-    HUM:AdjustSpeed(0.0)
-end)
-glock.Unequipped:connect(function()
-    HUM:Stop()
-end)
-local lplr = game:GetService("Players").LocalPlayer
-local shotty = lplr.Backpack:FindFirstChild("Shotty")    
-local Animation = Instance.new("Animation")
-Animation.AnimationId = "rbxassetid://503259904"
-local plr = game:GetService('Players').LocalPlayer
-local HUM = plr.Character.Humanoid:LoadAnimation(Animation)        
-shotty.Equipped:connect(function()
-    wait(.1)
-    HUM:Play()
-    HUM:AdjustSpeed(0.0)
-end)
-shotty.Unequipped:connect(function()
-    HUM:Stop()
-end)
+  
     end
 }
 
